@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Add News</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+   
+</head>
+
+<body>
+    <nav class="navbar navbar navbar-inverse" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria- controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Web Development Project</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.html">Home</a>
+                        </li>
+                        <li class="active"><a href="add.html">Add News</a>
+                        </li>
+                        <li><a href="delete.html">Delete News</a>
+                        </li>
+                        <li><a href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+            <!--/.container-fluid -->
+        </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 col-lg-4 "></div>
+            <div class="col-md-6 col-lg-4 ">
+                <h1 class="text-center">ADD NEWS</h1>
+                <form id="edit" role="form">
+
+                    <div class="indicates-required"><span class="asterisk">*</span>required field</div>
+
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <div class="input-group">
+                            <input type="text" id="title" class="form-control" name="title" placeholder="Enter title" required>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                            <label for="InputName">News Category</label>
+                            <select class="form-control" id="category" name="category">
+                                <option value="1" class="active">Business</option>
+								<option value="2">Sport</option>
+                                <option value="3">Technology</option>
+								<option value="4">Health</option>
+                                <option value="5">Arts & Entertainment</option>
+								<option value="6">Education</option>
+							</select>
+                    </div>
+					
+					<div class="form-group">
+                        <label for="source">Source</label>
+                        <input type="text" class="form-control" rows="15" id="source" name="source" required/>
+                    </div>
+					
+                    <div class="form-group">
+                        <label for="article">Article</label>
+                        <textarea class="form-control" rows="15" id="article" name="article" ></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="link">Link for the Image</label>
+                        <input type="text" class="form-control" name="link" id="link" placeholder="http://" >
+                    </div>
+
+                    <!-- <div class="form-group">
+                        <label for="imagefile">Upload an image file</label>
+                        <input type="file" name="imagefile" id="imagefile" class="btn btn-default">
+                    </div> -->
+
+                    <div class="form-group">
+                        <input type="submit" name="submit" id="submit" value="submit" class="btn btn-info pull-right btn-lg">
+                    </div>
+                    
+                    
+                        
+                </form>
+				
+                <div class="col-md-3 col-lg-4 "></div>
+
+            </div>
+            <!--end row-->
+            <div id="footer">
+				<div class="container">
+				    <p class="muted credit">Copyright &copy; 2014 Yan Yan &amp; Zahidali </p>
+		        </div>
+            </div>
+        </div>
+    </div>
+        <!--end container-->
+</body>
+         <script src="js/addNews.js"></script>
+</html>

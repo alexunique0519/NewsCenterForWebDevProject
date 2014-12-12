@@ -15,31 +15,40 @@
     $dbpassword = constant("DB_PASS"); // Mysql password
     $db_name = constant("DB_NAME"); // Database name
 
-
-	$sQuery ='%';
-
-	if(array_key_exists('q', $_GET))
-	{
-		$sQuery = $_GET['q'];
-	}
-
 	$dbh = new PDO("mysql:host=$dbhost;post=$dbport;dbname=NIS", $dbusername, $dbpassword);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	//query from view
-	$result = $dbh->prepare("SELECT id, categoryId, source, title, imageURL, timestamp, userId, description FROM news");
-	$result->execute(array($sQuery));
+	
+	if(array_key_exists("ids", $_POST) )
+	{
+		$aIds = $_POST["ids"];
+		
+        $arraySize = count($aIds);
+        
+        
+        foreach ($aIds as $value) {
+                $statement = $dbh->prepare("DELETE FROM news WHERE id=?");
+            	$row = $statement->execute(array($value));
+                $arraySize -= $row;
+                
+                /*if($row == 1)
+                {
+                    $deletedCounter++;
+                }*/
+        } 
+	   
+        
+        
+        if($arraySize == 0)
+        {
+		   echo json_encode(array('result' => $row . 'records has been deleted'));
+            	//return true;
+        }
 
-	if(array_key_exists("HTTP_ORIGIN", $_SERVER)){
-		header("Access-Control-Allow-Origin: " . $_SERVER["HTTP_ORIGIN"]);
-		header("Access-Control-Allow-Headers: X-Requested-With, X-Authorization, Content-Type, X-HTTP-Method-Override");
-		header("Access-Control-Allow-Credentials: true");
-	header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
-	}
+    }
 
-	header("Content-type:application/json; charset=UTF-8");
-	echo json_encode($result->fetchAll(PDO::FETCH_ASSOC));
+
+	
 
     $dbh = null;
 ?>
-

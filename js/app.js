@@ -1,33 +1,53 @@
-$("#edit").submit(function () {
-    //console.log($(this).serializeArray());
+jQuery(document).ready(function () {
+    jQuery.ajax("http://firstphp-alexunique0519.rhcloud.com/query_temp.php").done(function (aResults) {
+        if(aResults == 0)
+        {
+            jQuery("#info").append("Sorry, there is nothing to delete. :(");
+          
+            return false;
+        }
+        
+        
+        for (var n = 0; n < aResults.length; n++) {
+            var oNews = aResults[n];
+            var sRow = "<tr><td>" + oNews.id + "</td><td>" + oNews.title + "</td><td>" + oNews.timestamp + "</td><td>" + "<input type='checkbox' name='ids'" + "value=" + oNews.id + ">" + "</td></tr>";
 
-    var title = $("#title").val();
-    var category = $("#category").val();
-    var article = $("#article").val();
-    var link = $("#link").val();
+            jQuery("#newslist").append(sRow);
 
-    if (title == '' || category == '' || article == '' || link == '') {
-        alert("Please Fill All Info");
-    } else {
+        }
+
+    });
+
+
+    $("#delete").submit(function () {
+
+        var checked = $('input[name="ids"]:checked');
+        var checkedValues = [];
+        checked.each(function (i) {
+
+            // add checked values to our temporary list
+            checkedValues.push(checked[i].value);
+        });
 
         jQuery.ajax({
             type: 'post',
             dataType: "json",
-            url: "http://firstphp-alexunique0519.rhcloud.com/upload.php",
+            url: "http://firstphp-alexunique0519.rhcloud.com/delete.php",
             data: {
-                'title_name': title,
-                'category_name': category,
-                'article_name': article,
-                'link_name': link
+                'ids': checkedValues
             },
             success: function (data) {
                 alert(data.result);
+                location.href = "http://firstphp-alexunique0519.rhcloud.com/delete.html"
             },
             error: function () {
-                alert("submission failed");
+                alert("delete failed");
             }
         });
+        return false;
+    });
 
-    }
-    return false;
+
+
+
 });

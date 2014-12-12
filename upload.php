@@ -26,6 +26,7 @@
 
 	if(array_key_exists("title_name", $_POST) )
 	{
+		$sSource = $_POST["source_name"];
 		$sTitle = $_POST["title_name"];
 		$sCategory = $_POST["category_name"];
 		$sArticle = $_POST["article_name"];
@@ -37,10 +38,10 @@
 		$sTime = date("Y-m-d H:i:s");
 
 
-		$statement = $dbh->prepare("INSERT INTO news(`categoryId`, `title`, `imageURL`, `timestamp`, `userId`, `description`) VALUES (?, ?, ?, ?, ?, ?)");
+		$statement = $dbh->prepare("INSERT INTO news(`categoryId`, `source`,`title`, `imageURL`, `timestamp`, `userId`, `description`) VALUES (?, ?, ?, ?, ?, ?, ?)");
 		try{
-			$row = $statement->execute(array($sCategory, $sTitle, $sLink, $sTime, $sUserId, $sArticle));
-			$result = $row. "piece of news added";
+			$row = $statement->execute(array($sCategory, $sSource, $sTitle, $sLink, $sTime, $sUserId, $sArticle));
+			$result = $row . "piece of news added";
 
 			if($row > 0)
 			{

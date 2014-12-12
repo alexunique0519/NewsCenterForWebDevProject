@@ -9,100 +9,51 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/loadNews.js"></script>
 </head>
 
 <body>
+   <nav class="navbar navbar navbar-inverse" role="navigation">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-3 col-lg-4 "></div>
-            <div class="col-md-6 col-lg-4 ">
-                <h1 class="text-center">Edit Page</h1>
-                <form id="edit" role="form">
-
-                    <div class="indicates-required"><span class="asterisk">*</span>required field</div>
-
-                    <div class="form-group">
-                        <label for="title">Title</label>
-                        <div class="input-group">
-                            <input type="text" id="title" class="form-control" name="title" placeholder="Enter title" required>
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                            <label for="InputName">News Category</label>
-                            <select class="form-control" id="category" name="category">
-                                <option value="1" class="active">Sport</option>
-                                <option value="2">Business</option>
-                                <option value="3">Technology</option>
-                            </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="article">Article</label>
-                        <textarea class="form-control" rows="15" id="article" name="article" ></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="link">Link for the Image</label>
-                        <input type="text" class="form-control" name="link" id="link" placeholder="http://" >
-                    </div>
-
-                     <div class="form-group">
-                        <label for="imagefile">Upload an image file</label>
-                        <input type="file" name="imagefile" id="imagefile" class="btn btn-default">
-                    </div>
-
-                    <div class="form-group">
-                        <input type="submit" name="submit" id="submit" value="submit" class="btn btn-info pull-right btn-lg">
-                    </div>
-
-
-                </form>
-				<script>
-				$("#edit").submit(function () {
-					var title_ = $("#title").val();
-					var category_ = $("#category").val();
-					var article_ = $("#article").val();
-					var link_    = $("#link").val();
-
-					if ( title == '' || category == '' || article == '' || link == '' ) {
-						alert("Please Fill All Info");
-					} else {
-						jQuery.ajax({
-						type: 'post',
-						dataType: "json",
-						url: "http://firstphp-alexunique0519.rhcloud.com/upload.php",
-						data: {
-						'title_name': title_,
-						'category_name': category_,
-						'article_name': article_,
-						'link_name': link_
-						},
-						success: function(data){
-						alert(data.result);
-						},
-						error: function(){
-						alert("submission failed");
-						}
-						});
-
-					}
-					return false;
-				});
-
-				</script>
-                <div class="col-md-3 col-lg-4 "></div>
-
-            </div>
-            <!--end row-->
-            <div id="footer">
-                <div class="container">
-                    <p class="muted credit">Example courtesy <a href="http://martinbean.co.uk">Martin Bean</a> and <a href="http://ryanfait.com/sticky-footer/">Ryan Fait</a>.</p>
-                </div>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria- controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Web Development Project</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="index.html">Home</a>
+                </li>
+                <li ><a href="add.html">Add News</a>
+                </li>
+                <li><a href="delete.html">Delete News</a>
+                </li>
+                <li><a href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+    <!--/.container-fluid -->
+    </nav>
+   <div class="container-fluid">
+        <h1 id="info"></h1>
+       <div class="col-md-3 col-lg-4"></div>
+        <div class="col-md-6 col-lg-4 text-center" id="news">
+        </div>
+        <!--end row-->
+        <div id="footer">
+            <img class="col-md-offset-10" src="image/QRCodeForApp.gif" alt="QR Code" width="100" height="100">
+            <p class="col-md-offset-10">Scan the QR Code to Download Our App!</p>
+            <div class="container">
+                <p class="muted credit">Copyright &copy; 2014 Yan Yan &amp; Zahidali</p>
             </div>
         </div>
+    </div>
         <!--end container-->
 </body>
 

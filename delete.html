@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Delete News</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="js/app.js"></script>
+</head>
+
+<body id="Title">
+    <nav class="navbar navbar navbar-inverse" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria- controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Web Development Project</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Home</a>
+                    </li>
+                    <li><a href="add.html">Add News</a>
+                    </li>
+                    <li  class="active"><a href="delete.html">Delete News</a>
+                    </li>
+                    <li><a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+        <!--/.container-fluid -->
+    </nav>
+    <div class="container-fluid">
+
+
+
+        <div class="col-md-3 col-lg-4 "></div>
+        <div class="col-md-6 col-lg-4 ">
+            <h1 class="text-center">DELETE NEWS</h1>
+            <h2 class="text-center" id="info"></h2>
+            <form id="delete" role="form">
+                <div class="col-md-16">
+                    <table class="table table-bordered" id="newslist">
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Date Time</th>
+                            <th>Select</th>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="form-group" id="delete">
+                    <input type="submit" name="submit" id="submit" value="submit" class="btn btn-info pull-right btn-lg">
+                </div>
+            </form>
+            <!--end row-->
+            <div id="footer">
+                <div class="container">
+                    <p class="muted credit">Copyright &copy; 2014 Yan Yan &amp; Zahidali</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end container-->
+</body>
+
+</html>
