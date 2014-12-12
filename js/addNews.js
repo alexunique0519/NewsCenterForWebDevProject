@@ -21,6 +21,7 @@ $("#edit").submit(function () {
             },
             success: function (data) {
                 alert(data.result);
+                window.location.href="index.html";
             },
             error: function () {
                 alert("submission failed");
