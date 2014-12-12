@@ -2,7 +2,7 @@ jQuery(document).ready(function () {
     jQuery.ajax("http://firstphp-alexunique0519.rhcloud.com/query_temp.php").done(function (aResults) {
         if(aResults == 0)
         {
-            jQuery("#info").append("Sorry, there is not News. :(");
+            jQuery("#news").append("<h1>Sorry, there is not News. :(</h1>");
           
             return false;
         }

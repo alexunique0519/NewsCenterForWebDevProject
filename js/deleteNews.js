@@ -3,11 +3,12 @@ jQuery(document).ready(function () {
         if(aResults == 0)
         {
             jQuery("#info").append("Sorry, there is nothing to delete. :(");
-          
+            $("#submit").remove();
+            $("#newslist").remove();
             return false;
         }
-        
-        
+
+
         for (var n = 0; n < aResults.length; n++) {
             var oNews = aResults[n];
             var sRow = "<tr><td>" + oNews.id + "</td><td>" + oNews.title + "</td><td>" + oNews.timestamp + "</td><td>" + "<input type='checkbox' name='ids'" + "value=" + oNews.id + ">" + "</td></tr>";
@@ -38,7 +39,7 @@ jQuery(document).ready(function () {
             },
             success: function (data) {
                 alert(data.result);
-                location.href = "http://firstphp-alexunique0519.rhcloud.com/delete.html"
+                window.location.href = "delete.html"
             },
             error: function () {
                 alert("delete failed");
